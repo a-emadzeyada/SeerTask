@@ -1,11 +1,11 @@
 package com.seer.seertask;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-import static java.lang.Thread.sleep;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -13,19 +13,9 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
-        final Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    sleep(1500);
-                    Intent intent = new Intent(SplashScreen.this,MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
-        });thread.start();
+        Button btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+        });
     }
 }
