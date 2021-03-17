@@ -116,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
         if (isClicked) {
             searchResult.setVisibility(View.GONE);
             searchResult.setAdapter(null);
+            searchBox.setText("");
+            hideKeyboard(MainActivity.this);
             isClicked = false;
             return;
         }
